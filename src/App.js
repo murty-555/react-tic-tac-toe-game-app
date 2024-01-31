@@ -1,4 +1,5 @@
 import "./App.css";
+import GameBoard from "./components/GameBoard";
 import Player from "./components/Player";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         </ol>
 
         {/* GAME BOARD */}
+        <GameBoard/>
       </div>
       {/* LOG */}
     </main>
