@@ -2,7 +2,9 @@ import {useState} from 'react';
 export default function Player({name, symbol}){
     const [isEditing, setIsEditing] = useState(false);
     function handleClick(){
-        setIsEditing(!isEditing)
+        // setIsEditing(!isEditing)
+        //Instead of updating the state as above, it is better to update like below
+        setIsEditing((editing) => !editing)
     }
     return (
         <li>
