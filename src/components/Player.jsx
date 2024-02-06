@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol, isActive, onChangeName }) {
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -7,6 +7,9 @@ export default function Player({ initialName, symbol }) {
     // setIsEditing(!isEditing)
     //Instead of updating the state as above, it is better to update like below
     setIsEditing((editing) => !editing);
+    if(isEditing){
+      onChangeName(symbol,playerName)
+    }
   }
 
   function handleChange(event) {
@@ -14,7 +17,7 @@ export default function Player({ initialName, symbol }) {
   }
 
   return (
-    <li>
+    <li className={isActive ? 'active' : ''}>
       <span className="player">
         {!isEditing && <span className="player-name">{playerName}</span>}
         {isEditing && (
